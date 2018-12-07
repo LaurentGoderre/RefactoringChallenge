@@ -14,7 +14,7 @@ Refactor the code so that it can survive an onslaught of the upcoming changes, y
 
 Be pragmatic in your refactoring. Don't use something fancy if you feel it's not needed.
 
-Zip up your project (remove node_modules) and submit it with your resume at this job posting: . Don't do a PR/Fork as everyone else would see your work and could copy it.
+Zip up your project (remove node_modules) and submit it with your resume at this job posting: https://trainerroad.recruiterbox.com/jobs/c7fbc38f26b642c093bd2f2d452e1bba. Don't do a PR/Fork as everyone else would see your work and could copy it.
 
 If we love your refactoring and your resume is legit, we'll move to the next step. This might seem like a lot of hoops to jump through, but it's way better than hiring someone who answers trivia questions in an interview well but can't code worth a damn.
 
