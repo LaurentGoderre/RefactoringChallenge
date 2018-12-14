@@ -40,32 +40,32 @@ export class Order {
         var totalAmout = 0;
         var result = 'Order Receipt for ' + this._company + newline;
 
-        this._lines.forEach(line => {
+        for (var i = 0; i < this._lines.length; i++) {
             var thisAmount = 0;
 
-            switch (line.bike.price) {
+            switch (this._lines[i].bike.price) {
                 case Bike.OneThousand:
-                    if (line.quantity >= 20)
-                        thisAmount += line.quantity * line.bike.price * .9;
+                    if (this._lines[i].quantity >= 20)
+                        thisAmount += this._lines[i].quantity * this._lines[i].bike.price * .9;
                     else
-                        thisAmount += line.quantity * line.bike.price;
+                        thisAmount += this._lines[i].quantity * this._lines[i].bike.price;
                     break;
                 case Bike.TwoThousand:
-                    if (line.quantity >= 10)
-                        thisAmount += line.quantity * line.bike.price * .8;
+                    if (this._lines[i].quantity >= 10)
+                        thisAmount += this._lines[i].quantity * this._lines[i].bike.price * .8;
                     else
-                        thisAmount += line.quantity * line.bike.price;
+                        thisAmount += this._lines[i].quantity * this._lines[i].bike.price;
                     break;
                 case Bike.FiveThousand:
-                    if (line.quantity >= 5)
-                        thisAmount += line.quantity * line.bike.price * .8;
+                    if (this._lines[i].quantity >= 5)
+                        thisAmount += this._lines[i].quantity * this._lines[i].bike.price * .8;
                     else
-                        thisAmount += line.quantity * line.bike.price;
+                        thisAmount += this._lines[i].quantity * this._lines[i].bike.price;
                     break;
             }
-            result += '\t' + line.quantity + ' x ' + line.bike.brand + ' ' + line.bike.model + ' = $' + formatMoney(thisAmount) + newline;
+            result += '\t' + this._lines[i].quantity + ' x ' + this._lines[i].bike.brand + ' ' + this._lines[i].bike.model + ' = $' + formatMoney(thisAmount) + newline;
             totalAmout += thisAmount;
-        });
+        }
 
         result += 'Sub-Total: $' + formatMoney(totalAmout) + newline;
         var tax = totalAmout * this._taxRate;
@@ -80,32 +80,32 @@ export class Order {
         var result = '<html><body><h1>Order Receipt for ' + this._company + '</h1>';
 
         result += '<ul>';
-        this._lines.forEach(line => {
+        for (var i = 0; i < this._lines.length; i++) {
             var thisAmount = 0;
 
-            switch (line.bike.price) {
+            switch (this._lines[i].bike.price) {
                 case Bike.OneThousand:
-                    if (line.quantity >= 20)
-                        thisAmount += line.quantity * line.bike.price * .9;
+                    if (this._lines[i].quantity >= 20)
+                        thisAmount += this._lines[i].quantity * this._lines[i].bike.price * .9;
                     else
-                        thisAmount += line.quantity * line.bike.price;
+                        thisAmount += this._lines[i].quantity * this._lines[i].bike.price;
                     break;
                 case Bike.TwoThousand:
-                    if (line.quantity >= 10)
-                        thisAmount += line.quantity * line.bike.price * .8;
+                    if (this._lines[i].quantity >= 10)
+                        thisAmount += this._lines[i].quantity * this._lines[i].bike.price * .8;
                     else
-                        thisAmount += line.quantity * line.bike.price;
+                        thisAmount += this._lines[i].quantity * this._lines[i].bike.price;
                     break;
                 case Bike.FiveThousand:
-                    if (line.quantity >= 5)
-                        thisAmount += line.quantity * line.bike.price * .8;
+                    if (this._lines[i].quantity >= 5)
+                        thisAmount += this._lines[i].quantity * this._lines[i].bike.price * .8;
                     else
-                        thisAmount += line.quantity * line.bike.price;
+                        thisAmount += this._lines[i].quantity * this._lines[i].bike.price;
                     break;
             }
-            result += '<li>' + line.quantity + ' x ' + line.bike.brand + ' ' + line.bike.model + ' = $' + formatMoney(thisAmount) + '</li>';
+            result += '<li>' + this._lines[i].quantity + ' x ' + this._lines[i].bike.brand + ' ' + this._lines[i].bike.model + ' = $' + formatMoney(thisAmount) + '</li>';
             totalAmout += thisAmount;
-        });
+        };
         result += '</ul>';
 
         result += '<h3>Sub-Total: $' + formatMoney(totalAmout) + '</h3>';
